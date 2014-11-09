@@ -1,0 +1,54 @@
+{
+    "name": "Recipe Table Of Contents",
+    "description": "creates Table Of Contents templates and fields",
+    "prefix": "",
+    "group": "PWR",
+    "dependencies": [
+    ],
+    "jsonDependencies": [],
+    "templates": [
+        {
+            "name": "recipe-tocs",
+            "label": "Recipe Table Of Contents",
+            "fields":
+                [ "title" ],
+            "attributes": [
+                ["tags", "pwr recipe-tocs"],
+                ["pageLabelField", "fa-list title"],
+                ["childTemplates", [
+                    ["recipe-toc", "selector_id", "templates"]
+                ], "array"]
+                
+            ]
+        },
+        {
+            "name": "recipe-toc",
+            "label": "Recipe TOC-Item",
+            "fields":
+                [ "title", "body", "subToc" ],
+            "attributes": [
+                ["tags", "pwr recipe-tocs"],
+                ["pageLabelField", "fa-list title"],
+                ["noChildren", 1],
+                ["parentTemplates", [
+                    ["recipe-tocs", "selector_id", "templates"]
+                ], "array"]
+            ]
+        }
+    ],
+    "pages": [],    
+    "fields": [
+        {
+            "name": "subToc",
+            "type": "FieldtypePage",
+            "label": "Sub TOC",
+            "attributes": [
+                ["tags", "pwr recipes"],
+                ["findPagesSelector", "template=recipe"],
+                ["inputfield", "InputfieldAsmSelect"],
+                ["derefAsPage", "FieldtypePage::derefAsPageArray", "constant"],
+                ["labelFieldName", "title"]
+            ]
+        }
+    ]
+}

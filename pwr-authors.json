@@ -1,0 +1,62 @@
+{
+    "name": "Recipe Authors",
+    "description": "creates Recipe Authors templates and fields",
+    "prefix": "",
+    "group": "PWR",
+    "dependencies": [
+    ],
+    "jsonDependencies": [],
+    "templates": [
+        {
+            "name": "recipe-authors",
+            "label": "Recipe Authors",
+            "fields":
+                [ "title" ],
+            "attributes": [
+                ["tags", "pwr recipe-authors"],
+                ["pageLabelField", "fa-users title"],
+                ["childTemplates", [
+                    ["recipe-author", "selector_id", "templates"]
+                ], "array"]
+                
+            ]
+        },
+        {
+            "name": "recipe-author",
+            "label": "Recipe Author",
+            "fields":
+                [
+                    "title",
+                    "githubLink",
+                    "forumLink"
+                ],
+            "attributes": [
+                ["tags", "pwr recipe-authors"],
+                ["pageLabelField", "fa-user title"],
+                ["noChildren", 1],
+                ["parentTemplates", [
+                    ["recipe-authors", "selector_id", "templates"]
+                ], "array"]
+            ]
+        }
+    ],
+    "pages": [],    
+    "fields": [
+        {
+            "name": "githubLink",
+            "type": "FieldtypeText",
+            "label": "GitHub Link",
+            "attributes": [
+                ["tags", "pwr authors"]
+            ]
+        },
+        {
+            "name": "forumLink",
+            "type": "FieldtypeText",
+            "label": "Forum Link",
+            "attributes": [
+                ["tags", "pwr authors"]
+            ]
+        }
+    ]
+}

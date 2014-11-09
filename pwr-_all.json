@@ -1,0 +1,39 @@
+{
+    "name": "ProcessWire Recipes",
+    "description": "installs all PWR modules",
+    "prefix": "",
+    "group": "PWR",
+    "dependencies": [],
+    "jsonDependencies": [
+        "pwr-recipes.json",
+        "pwr-authors.json",
+        "pwr-tags.json",
+        "pwr-toc.json"
+    ],
+    "pages": [
+        {
+            "name": "recipes",
+            "title": "Recipes",
+            "template": "recipes",
+            "published": true
+        },
+        {
+            "name": "recipe-tags",
+            "title": "Recipe Tags",
+            "template": "recipe-tags",
+            "published": true
+        },
+        {
+            "name": "recipe-authors",
+            "title": "Recipe Authors",
+            "template": "recipe-authors",
+            "published": true
+        },
+        {
+            "name": "recipe-tocs",
+            "title": "Recipe Table Of Contents",
+            "template": "recipe-tocs",
+            "published": true
+        }
+    ]
+}

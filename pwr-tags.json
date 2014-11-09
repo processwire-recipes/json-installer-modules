@@ -1,0 +1,41 @@
+{
+    "name": "Recipe Tags",
+    "description": "creates Recipe Tags templates and fields",
+    "prefix": "",
+    "group": "PWR",
+    "dependencies": [
+    ],
+    "jsonDependencies": [],
+    "templates": [
+        {
+            "name": "recipe-tags",
+            "label": "Recipe Tags",
+            "fields":
+                [ "title" ],
+            "attributes": [
+                ["tags", "pwr recipe-tags"],
+                ["pageLabelField", "fa-tags title"],
+                ["childTemplates", [
+                    ["recipe-tag", "selector_id", "templates"]
+                ], "array"]
+                
+            ]
+        },
+        {
+            "name": "recipe-tag",
+            "label": "Recipe Tag",
+            "fields":
+                [ "title" ],
+            "attributes": [
+                ["tags", "pwr recipe-tags"],
+                ["pageLabelField", "fa-tag title"],
+                ["noChildren", 1],
+                ["parentTemplates", [
+                    ["recipe-tags", "selector_id", "templates"]
+                ], "array"]
+            ]
+        }
+    ],
+    "pages": [],    
+    "fields": []
+}

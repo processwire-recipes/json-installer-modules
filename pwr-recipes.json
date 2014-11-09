@@ -1,0 +1,113 @@
+{
+    "name": "Recipes",
+    "description": "creates Recipe templates and fields",
+    "prefix": "",
+    "group": "PWR",
+    "dependencies": [
+    ],
+    "jsonDependencies": [],
+    "templates": [
+        {
+            "name": "recipes",
+            "label": "Recipes",
+            "fields":
+                [ "title" ],
+            "attributes": [
+                ["tags", "pwr recipes"],
+                ["pageLabelField", "fa-file-text title"],
+                ["childTemplates", [
+                    ["recipe", "selector_id", "templates"]
+                ], "array"]
+                
+            ]
+        },
+        {
+            "name": "recipe",
+            "label": "Recipe",
+            "fields":
+                [   
+                    "title | w:80",
+                    "version | w:20",
+                    "problem",
+                    "solution",
+                    "resources",
+                    "tags",
+                    "authors"
+                ],
+            "attributes": [
+                ["tags", "pwr recipes"],
+                ["pageLabelField", "fa-file-text title"],
+                ["noChildren", 1],
+                ["parentTemplates", [
+                    ["recipes", "selector_id", "templates"]
+                ], "array"]
+            ]
+        }
+    ],
+    "pages": [],    
+    "fields": [
+        {
+            "name": "version",
+            "type": "FieldtypeText",
+            "label": "Version",
+            "attributes": [
+                ["tags", "pwr recipes"]
+            ]
+        },
+        
+        
+        {
+            "name": "authors",
+            "type": "FieldtypePage",
+            "label": "Author",
+            "attributes": [
+                ["tags", "pwr recipes"],
+                ["parent_id", "/recipe-authors/", "selector_id"],
+                ["template_id", "recipe-author", "selector_id", "templates"],
+                ["addable", 1],
+                ["inputfield", "InputfieldAsmSelect"],
+                ["derefAsPage", "FieldtypePage::derefAsPageArray", "constant"],
+                ["labelFieldName", "title"]
+            ]
+        },
+        
+        {
+            "name": "problem",
+            "type": "FieldtypeTextarea",
+            "label": "Problem",
+            "attributes": [
+                ["tags", "pwr recipes"]
+            ]
+        },
+        {
+            "name": "solution",
+            "type": "FieldtypeTextarea",
+            "label": "Solution",
+            "attributes": [
+                ["tags", "pwr recipes"]
+            ]
+        },
+        {
+            "name": "tags",
+            "type": "FieldtypePage",
+            "label": "Tags",
+            "attributes": [
+                ["tags", "pwr recipes"],
+                ["parent_id", "/recipe-tags/", "selector_id"],
+                ["template_id", "recipe-tag", "selector_id", "templates"],
+                ["addable", 1],
+                ["inputfield", "InputfieldAsmSelect"],
+                ["derefAsPage", "FieldtypePage::derefAsPageArray", "constant"],
+                ["labelFieldName", "title"]
+            ]
+        },        
+        {
+            "name": "resources",
+            "type": "FieldtypeTextarea",
+            "label": "Resources",
+            "attributes": [
+                ["tags", "pwr recipes"]
+            ]
+        }
+    ]
+}
